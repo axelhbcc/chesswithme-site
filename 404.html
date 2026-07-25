@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChessWithMe</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #F5F1FF;
+      color: #1A1533;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      text-align: center;
+    }
+    h1 { font-size: 22px; margin-bottom: 8px; }
+    p { color: #5B5670; font-size: 15px; max-width: 320px; }
+    a.button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 24px;
+      background: #6C4CE8;
+      color: #fff;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h1>♞ ChessWithMe</h1>
+  <p id="message">This link only works if you have the ChessWithMe app installed.</p>
+  <a id="open-link" class="button" href="#" style="display: none;">Open in ChessWithMe</a>
+
+  <script>
+    // GitHub Pages serves this file for any unmatched path (no server-side routing available
+    // for a static site), so this is the fallback for /game/<token> links when the app isn't
+    // installed or Universal Links didn't intercept — not the primary flow, which is the OS
+    // opening the app directly before this page is ever requested.
+    var match = window.location.pathname.match(/\/game\/([A-Za-z0-9]+)/);
+    if (match) {
+      var token = match[1];
+      var appLink = document.getElementById('open-link');
+      appLink.href = 'chesswithme://game/' + token;
+      appLink.style.display = 'inline-block';
+      document.getElementById('message').textContent =
+        "If you have the ChessWithMe app installed, tap below to open this game.";
+      window.location.href = appLink.href;
+    }
+  </script>
+</body>
+</html>

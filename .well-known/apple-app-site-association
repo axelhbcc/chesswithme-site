@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "W878G6M272.com.axelhbccsteam.chesswithme",
+        "paths": ["/game/*"]
+      }
+    ]
+  }
+}
