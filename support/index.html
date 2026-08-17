@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — ChessWithMe</title>
+<meta name="description" content="Get help with ChessWithMe: contact the developer, find answers about games, meetups, safety and your account.">
+<link rel="icon" href="../icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#6C4CE8;
+    --violet-deep:#3D2A8C;
+    --lavender:#F5F1FF;
+    --square:#EDE7FF;
+    --green:#2FAE66;
+    --pink:#FF6BB3;
+    --ink:#1E1633;
+    --ink-soft:#5B5175;
+    --line:#DCD2FA;
+    --white:#FFFFFF;
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+  }
+
+  body{
+    margin:0;
+    background:var(--lavender);
+    color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  a{color:var(--violet-deep);text-decoration-thickness:1.5px;text-underline-offset:3px}
+  a:hover{color:var(--violet)}
+  a:focus-visible,summary:focus-visible{
+    outline:3px solid var(--violet);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--violet);
+    color:var(--white);
+    padding:48px 0 56px;
+  }
+  .brand{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .brand img{width:46px;height:46px;border-radius:12px;display:block}
+  .brand span{
+    font-family:"Baloo 2",cursive;
+    font-weight:700;font-size:22px;letter-spacing:.2px;
+  }
+  .eyebrow{
+    font-family:"Space Mono",monospace;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:#CDBFFF;margin:0 0 10px;
+  }
+  h1{
+    font-family:"Baloo 2",cursive;
+    font-weight:800;
+    font-size:clamp(34px,6vw,50px);
+    line-height:1.1;margin:0 0 14px;
+  }
+  header p.lede{margin:0;max-width:52ch;color:#E4DBFF;font-size:18px}
+
+  /* ---------- Contact card (above the fold) ---------- */
+  .contact{
+    background:var(--white);
+    border-radius:var(--radius);
+    box-shadow:0 18px 40px rgba(46,25,120,.18);
+    padding:28px 26px;
+    margin:-34px auto 0;
+    position:relative;
+    display:flex;flex-wrap:wrap;align-items:center;gap:20px;
+    justify-content:space-between;
+  }
+  .contact h2{
+    font-family:"Baloo 2",cursive;font-weight:700;
+    font-size:21px;margin:0 0 4px;
+  }
+  .contact p{margin:0;color:var(--ink-soft);font-size:15px}
+  .btn{
+    display:inline-block;
+    background:var(--violet);color:var(--white);
+    font-weight:700;font-size:16px;
+    padding:14px 26px;border-radius:999px;
+    text-decoration:none;white-space:nowrap;
+    transition:transform .15s ease,background .15s ease;
+  }
+  .btn:hover{background:var(--violet-deep);color:var(--white);transform:translateY(-2px)}
+  .mono{font-family:"Space Mono",monospace;font-size:14px;word-break:break-all}
+
+  /* ---------- Sections ---------- */
+  section{padding:54px 0}
+  h2.sec{
+    font-family:"Baloo 2",cursive;font-weight:700;
+    font-size:27px;margin:0 0 6px;
+  }
+  .sec-note{margin:0 0 24px;color:var(--ink-soft);font-size:15px}
+
+  /* ---------- FAQ: alternating board squares ---------- */
+  .faq{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--white)}
+  details{border-bottom:1px solid var(--line)}
+  details:last-child{border-bottom:none}
+  details:nth-child(odd){background:var(--square)}
+  summary{
+    cursor:pointer;list-style:none;
+    padding:18px 22px;
+    font-weight:600;font-size:16.5px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:"+";
+    font-family:"Space Mono",monospace;
+    font-size:20px;color:var(--violet);flex:none;
+  }
+  details[open] summary::after{content:"–"}
+  details[open] summary{color:var(--violet-deep)}
+  .answer{padding:0 22px 20px;color:var(--ink-soft);font-size:16px}
+  .answer p{margin:0 0 12px}
+  .answer p:last-child{margin-bottom:0}
+
+  /* ---------- Safety ---------- */
+  .safety{
+    background:var(--white);
+    border-left:5px solid var(--green);
+    border-radius:12px;
+    padding:24px 26px;
+  }
+  .safety ul{margin:12px 0 0;padding-left:20px;color:var(--ink-soft)}
+  .safety li{margin-bottom:8px}
+  .safety li:last-child{margin-bottom:0}
+
+  /* ---------- Legal ---------- */
+  .legal-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+  .chip{
+    background:var(--white);border:1px solid var(--line);
+    border-radius:999px;padding:11px 20px;
+    font-weight:600;font-size:15px;text-decoration:none;color:var(--violet-deep);
+  }
+  .chip:hover{border-color:var(--violet);color:var(--violet)}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--violet-deep);color:#CFC3FF;
+    padding:34px 0;font-size:14px;
+  }
+  footer a{color:var(--white)}
+  footer p{margin:0 0 6px}
+  footer p:last-child{margin-bottom:0}
+
+  @media (max-width:560px){
+    .contact{flex-direction:column;align-items:flex-start}
+    .btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="../icon.png" alt="">
+      <span>ChessWithMe</span>
+    </div>
+    <p class="eyebrow">Support</p>
+    <h1>Something not working?<br>Write to us.</h1>
+    <p class="lede">One person builds and answers ChessWithMe. Send an email and you'll get a reply from a human, usually within two working days.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="contact">
+    <div>
+      <h2>Email support</h2>
+      <p class="mono">contactchesswithme@gmail.com</p>
+    </div>
+    <a class="btn" href="mailto:contactchesswithme@gmail.com?subject=ChessWithMe%20support">Send an email</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <h2 class="sec">Quick answers</h2>
+    <p class="sec-note">The questions we get most often.</p>
+
+    <div class="faq">
+
+      <details>
+        <summary>I can't sign in, or I forgot my password</summary>
+        <div class="answer">
+          <p>On the sign-in screen, tap <strong>Forgot password</strong> and enter your email. You'll receive a link that opens ChessWithMe and lets you set a new one.</p>
+          <p>If the email doesn't arrive within a few minutes, check your spam folder. Still nothing? Email us and we'll sort it out.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I create a game?</summary>
+        <div class="answer">
+          <p>Tap the <strong>+</strong> button, then choose a <strong>1v1 duel</strong> or a <strong>group meetup</strong>. Set the place by searching an address or dropping a pin on the map, pick a date and a start time, and publish.</p>
+          <p>Your game appears on the map for players nearby. You can edit it afterwards — everyone involved sees the change in the chat.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Nobody has joined my game</summary>
+        <div class="answer">
+          <p>ChessWithMe is new in most places, so how busy the map looks depends on how many players are already around you. A game posted a few days ahead, at a public and easy-to-find spot, gets picked up far more often than one posted for tonight.</p>
+          <p>Sharing the link to your game also works well — anyone who taps it opens it straight in the app.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Someone didn't show up, or behaved badly</summary>
+        <div class="answer">
+          <p>Open the game and tap the red flag in the top-right corner to report it. Reports go straight to us by email and we read every one.</p>
+          <p>You can also leave honest feedback after the game — ratings are what keep the community trustworthy for everyone else.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I'm not getting notifications</summary>
+        <div class="answer">
+          <p>Check two places. In ChessWithMe, open <strong>Settings</strong> and make sure the notification categories you care about are switched on. Then in your iPhone's <strong>Settings › Notifications › ChessWithMe</strong>, confirm notifications are allowed.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I delete my account?</summary>
+        <div class="answer">
+          <p>Open <strong>Settings</strong> in the app and choose <strong>Delete account</strong>.</p>
+          <p>This is permanent. Your profile, games, messages, ratings and photo are removed and cannot be restored. If you'd rather just take a break, you can sign out instead.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is there an Android version?</summary>
+        <div class="answer">
+          <p>Not yet. ChessWithMe is iOS only for now. Email us if you'd like to be told when Android is ready.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">Meeting safely</h2>
+    <p class="sec-note">ChessWithMe connects you with people you haven't met. A few habits worth keeping.</p>
+    <div class="safety">
+      <ul>
+        <li>Meet in public places — parks, cafés, clubs, libraries.</li>
+        <li>Tell someone where you're going and when you expect to be back.</li>
+        <li>Read the other player's profile and ratings before you confirm.</li>
+        <li>Use the in-app chat to agree the details, so there's a record of what was said.</li>
+        <li>If a meeting feels wrong, leave. Then report it — the flag is on every game screen.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">Legal</h2>
+    <p class="sec-note">How your data is handled, and the rules for using the app.</p>
+    <div class="legal-links">
+      <a class="chip" href="../privacy/">Privacy Policy</a>
+      <a class="chip" href="../terms/">Terms of Service</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ChessWithMe — organize real chess games, in real places.</p>
+    <p>Support: <a href="mailto:contactchesswithme@gmail.com">contactchesswithme@gmail.com</a></p>
+    <p>© 2026 Axel Bondu. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
