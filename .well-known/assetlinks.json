@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.axelhbccsteam.chesswithme",
+      "sha256_cert_fingerprints": [
+        "5B:3C:B8:65:0F:3F:0C:90:14:9B:69:0E:4F:5C:A9:9E:95:49:92:9B:7D:1E:A0:B2:5A:15:99:53:86:92:58:7E"
+      ]
+    }
+  }
+]
